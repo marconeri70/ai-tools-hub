@@ -1,0 +1,699 @@
+<!DOCTYPE html><html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI Tools Hub</title>
+  <style>
+    :root {
+      --bg: #0b1220;
+      --panel: #121a2b;
+      --panel-2: #1a2440;
+      --text: #eaf1ff;
+      --muted: #9fb0d3;
+      --accent: #4da3ff;
+      --accent-2: #7b61ff;
+      --ok: #2dd4bf;
+      --warn: #f59e0b;
+      --danger: #ef4444;
+      --border: rgba(255,255,255,0.08);
+      --shadow: 0 14px 30px rgba(0,0,0,0.35);
+      --radius: 18px;
+    }* { box-sizing: border-box; }
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  background: linear-gradient(180deg, #08101d 0%, #0b1220 100%);
+  color: var(--text);
+}
+
+.container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 24px;
+}
+
+.hero {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: 20px;
+  align-items: stretch;
+  margin-bottom: 24px;
+}
+
+.hero-card, .stats-card, .tool-card {
+  background: rgba(18,26,43,0.9);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(10px);
+}
+
+.hero-card {
+  padding: 28px;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-card::after {
+  content: "";
+  position: absolute;
+  inset: auto -40px -60px auto;
+  width: 180px;
+  height: 180px;
+  background: radial-gradient(circle, rgba(123,97,255,0.35), transparent 60%);
+  pointer-events: none;
+}
+
+.badge {
+  display: inline-block;
+  padding: 8px 12px;
+  border-radius: 999px;
+  font-size: 12px;
+  letter-spacing: 0.3px;
+  color: #dce8ff;
+  background: rgba(77,163,255,0.12);
+  border: 1px solid rgba(77,163,255,0.25);
+  margin-bottom: 14px;
+}
+
+h1 {
+  margin: 0 0 10px;
+  font-size: 40px;
+  line-height: 1.05;
+}
+
+.subtitle {
+  margin: 0;
+  color: var(--muted);
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+.stats-card {
+  padding: 24px;
+  display: grid;
+  gap: 12px;
+  align-content: center;
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+}
+
+.stat {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 14px;
+}
+
+.stat strong {
+  display: block;
+  font-size: 24px;
+  margin-bottom: 6px;
+}
+
+.controls {
+  display: grid;
+  grid-template-columns: 1fr 220px;
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+.search, .select, input, textarea {
+  width: 100%;
+  background: rgba(255,255,255,0.05);
+  border: 1px solid var(--border);
+  color: var(--text);
+  padding: 12px 14px;
+  border-radius: 14px;
+  font-size: 14px;
+  outline: none;
+}
+
+textarea {
+  min-height: 100px;
+  resize: vertical;
+}
+
+.search:focus, .select:focus, input:focus, textarea:focus {
+  border-color: rgba(77,163,255,0.6);
+  box-shadow: 0 0 0 3px rgba(77,163,255,0.12);
+}
+
+.tools-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+}
+
+.tool-card {
+  padding: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.tool-top {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  align-items: flex-start;
+}
+
+.tool-title {
+  margin: 0;
+  font-size: 20px;
+}
+
+.tool-desc {
+  margin: 0;
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.tag {
+  font-size: 12px;
+  padding: 6px 10px;
+  border-radius: 999px;
+  background: rgba(123,97,255,0.12);
+  border: 1px solid rgba(123,97,255,0.26);
+  color: #ddd6fe;
+  white-space: nowrap;
+}
+
+.tool-actions {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-top: auto;
+}
+
+button {
+  border: 0;
+  border-radius: 12px;
+  padding: 11px 14px;
+  cursor: pointer;
+  font-weight: 700;
+  color: white;
+  background: linear-gradient(135deg, var(--accent), var(--accent-2));
+}
+
+button.secondary {
+  background: rgba(255,255,255,0.06);
+  border: 1px solid var(--border);
+  color: var(--text);
+}
+
+.output {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 12px;
+  min-height: 56px;
+  white-space: pre-wrap;
+  color: #eef4ff;
+  line-height: 1.5;
+  word-break: break-word;
+}
+
+.small {
+  font-size: 12px;
+  color: var(--muted);
+}
+
+.hidden { display: none !important; }
+
+.footer {
+  margin-top: 26px;
+  color: var(--muted);
+  font-size: 13px;
+  text-align: center;
+}
+
+@media (max-width: 1100px) {
+  .tools-grid { grid-template-columns: repeat(2, 1fr); }
+  .hero { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 720px) {
+  .tools-grid { grid-template-columns: 1fr; }
+  .controls { grid-template-columns: 1fr; }
+  h1 { font-size: 30px; }
+  .container { padding: 16px; }
+}
+
+  </style>
+</head>
+<body>
+  <div class="container">
+    <section class="hero">
+      <div class="hero-card">
+        <div class="badge">Suite pronta per GitHub Pages</div>
+        <h1>AI Tools Hub</h1>
+        <p class="subtitle">Una raccolta di 20 strumenti online utili, semplici da usare e già pronti per essere pubblicati. Tutto funziona lato browser, senza server. Ottimo come base per attirare traffico, mostrare servizi o creare una futura versione premium.</p>
+      </div>
+      <div class="stats-card">
+        <div class="stats-grid">
+          <div class="stat"><strong>20</strong><span class="small">strumenti inclusi</span></div>
+          <div class="stat"><strong>100%</strong><span class="small">funziona offline</span></div>
+          <div class="stat"><strong>1 file</strong><span class="small">facile da pubblicare</span></div>
+          <div class="stat"><strong>GitHub</strong><span class="small">perfetto per Pages</span></div>
+        </div>
+      </div>
+    </section><section class="controls">
+  <input id="searchInput" class="search" type="text" placeholder="Cerca uno strumento... es. password, hashtag, bio" />
+  <select id="categoryFilter" class="select">
+    <option value="all">Tutte le categorie</option>
+    <option value="social">Social</option>
+    <option value="business">Business</option>
+    <option value="text">Testo</option>
+    <option value="utility">Utilità</option>
+  </select>
+</section>
+
+<section id="toolsGrid" class="tools-grid">
+  <!-- 1 Password -->
+  <article class="tool-card" data-category="utility" data-name="generatore password sicure utility sicurezza">
+    <div class="tool-top"><div><h3 class="tool-title">1. Generatore Password</h3><p class="tool-desc">Crea password casuali con lettere, numeri e simboli.</p></div><span class="tag">Utility</span></div>
+    <label class="small">Lunghezza</label>
+    <input id="pwdLength" type="number" value="14" min="6" max="64" />
+    <div class="tool-actions"><button onclick="generatePassword()">Genera</button><button class="secondary" onclick="copyOutput('pwdOutput')">Copia</button></div>
+    <div id="pwdOutput" class="output"></div>
+  </article>
+
+  <!-- 2 Username -->
+  <article class="tool-card" data-category="social" data-name="generatore username social nickname tiktok instagram">
+    <div class="tool-top"><div><h3 class="tool-title">2. Generatore Username</h3><p class="tool-desc">Trova idee per nickname social o gamer.</p></div><span class="tag">Social</span></div>
+    <label class="small">Parola base</label>
+    <input id="userBase" type="text" placeholder="es. marco, cassino, gamer" />
+    <div class="tool-actions"><button onclick="generateUsername()">Genera</button><button class="secondary" onclick="copyOutput('userOutput')">Copia</button></div>
+    <div id="userOutput" class="output"></div>
+  </article>
+
+  <!-- 3 Hashtag -->
+  <article class="tool-card" data-category="social" data-name="generatore hashtag social instagram facebook tiktok">
+    <div class="tool-top"><div><h3 class="tool-title">3. Generatore Hashtag</h3><p class="tool-desc">Genera hashtag pertinenti partendo da un argomento.</p></div><span class="tag">Social</span></div>
+    <label class="small">Argomento</label>
+    <input id="hashtagTopic" type="text" placeholder="es. ristorante, calcio, viaggi" />
+    <div class="tool-actions"><button onclick="generateHashtags()">Genera</button><button class="secondary" onclick="copyOutput('hashtagOutput')">Copia</button></div>
+    <div id="hashtagOutput" class="output"></div>
+  </article>
+
+  <!-- 4 Bio Instagram -->
+  <article class="tool-card" data-category="social" data-name="bio instagram social profilo">
+    <div class="tool-top"><div><h3 class="tool-title">4. Generatore Bio Social</h3><p class="tool-desc">Crea una bio rapida per Instagram, TikTok o Facebook.</p></div><span class="tag">Social</span></div>
+    <label class="small">Professione o ruolo</label>
+    <input id="bioRole" type="text" placeholder="es. operaio, fotografo, barista" />
+    <div class="tool-actions"><button onclick="generateBio()">Genera</button><button class="secondary" onclick="copyOutput('bioOutput')">Copia</button></div>
+    <div id="bioOutput" class="output"></div>
+  </article>
+
+  <!-- 5 Caption -->
+  <article class="tool-card" data-category="social" data-name="caption social post facebook instagram">
+    <div class="tool-top"><div><h3 class="tool-title">5. Generatore Caption</h3><p class="tool-desc">Scrive una caption breve per un post social.</p></div><span class="tag">Social</span></div>
+    <label class="small">Tema del post</label>
+    <input id="captionTopic" type="text" placeholder="es. nuova apertura, evento, promo" />
+    <div class="tool-actions"><button onclick="generateCaption()">Genera</button><button class="secondary" onclick="copyOutput('captionOutput')">Copia</button></div>
+    <div id="captionOutput" class="output"></div>
+  </article>
+
+  <!-- 6 CTA -->
+  <article class="tool-card" data-category="business" data-name="call to action marketing business vendita">
+    <div class="tool-top"><div><h3 class="tool-title">6. Generatore CTA</h3><p class="tool-desc">Crea call to action per vendita, contatti o download.</p></div><span class="tag">Business</span></div>
+    <label class="small">Obiettivo</label>
+    <input id="ctaGoal" type="text" placeholder="es. scarica app, compra, prenota" />
+    <div class="tool-actions"><button onclick="generateCTA()">Genera</button><button class="secondary" onclick="copyOutput('ctaOutput')">Copia</button></div>
+    <div id="ctaOutput" class="output"></div>
+  </article>
+
+  <!-- 7 Brand Name -->
+  <article class="tool-card" data-category="business" data-name="nome brand azienda negozio business">
+    <div class="tool-top"><div><h3 class="tool-title">7. Generatore Nome Brand</h3><p class="tool-desc">Genera idee per aziende, pagine o negozi.</p></div><span class="tag">Business</span></div>
+    <label class="small">Settore</label>
+    <input id="brandSector" type="text" placeholder="es. pizzeria, tecnologia, moda" />
+    <div class="tool-actions"><button onclick="generateBrandNames()">Genera</button><button class="secondary" onclick="copyOutput('brandOutput')">Copia</button></div>
+    <div id="brandOutput" class="output"></div>
+  </article>
+
+  <!-- 8 Slogan -->
+  <article class="tool-card" data-category="business" data-name="slogan business marketing brand">
+    <div class="tool-top"><div><h3 class="tool-title">8. Generatore Slogan</h3><p class="tool-desc">Crea slogan pubblicitari semplici e diretti.</p></div><span class="tag">Business</span></div>
+    <label class="small">Nome attività</label>
+    <input id="sloganName" type="text" placeholder="es. Cassino Pizza, Segnala Facile" />
+    <div class="tool-actions"><button onclick="generateSlogan()">Genera</button><button class="secondary" onclick="copyOutput('sloganOutput')">Copia</button></div>
+    <div id="sloganOutput" class="output"></div>
+  </article>
+
+  <!-- 9 Business Description -->
+  <article class="tool-card" data-category="business" data-name="descrizione attività business azienda presentazione">
+    <div class="tool-top"><div><h3 class="tool-title">9. Descrizione Attività</h3><p class="tool-desc">Genera una breve descrizione aziendale.</p></div><span class="tag">Business</span></div>
+    <label class="small">Tipo attività</label>
+    <input id="bizType" type="text" placeholder="es. negozio, app civica, ristorante" />
+    <div class="tool-actions"><button onclick="generateBusinessDescription()">Genera</button><button class="secondary" onclick="copyOutput('bizOutput')">Copia</button></div>
+    <div id="bizOutput" class="output"></div>
+  </article>
+
+  <!-- 10 Product Description -->
+  <article class="tool-card" data-category="business" data-name="descrizione prodotto ecommerce business vendita">
+    <div class="tool-top"><div><h3 class="tool-title">10. Descrizione Prodotto</h3><p class="tool-desc">Crea una descrizione breve per e-commerce o annunci.</p></div><span class="tag">Business</span></div>
+    <label class="small">Nome prodotto</label>
+    <input id="productName" type="text" placeholder="es. smartwatch, tazza, ebook" />
+    <div class="tool-actions"><button onclick="generateProductDescription()">Genera</button><button class="secondary" onclick="copyOutput('productOutput')">Copia</button></div>
+    <div id="productOutput" class="output"></div>
+  </article>
+
+  <!-- 11 Review -->
+  <article class="tool-card" data-category="text" data-name="recensione attività negozio testo">
+    <div class="tool-top"><div><h3 class="tool-title">11. Recensione Attività</h3><p class="tool-desc">Genera una recensione positiva ma naturale.</p></div><span class="tag">Testo</span></div>
+    <label class="small">Nome locale o attività</label>
+    <input id="reviewName" type="text" placeholder="es. Bar Centrale" />
+    <div class="tool-actions"><button onclick="generateReview()">Genera</button><button class="secondary" onclick="copyOutput('reviewOutput')">Copia</button></div>
+    <div id="reviewOutput" class="output"></div>
+  </article>
+
+  <!-- 12 Job Title -->
+  <article class="tool-card" data-category="text" data-name="titolo lavoro curriculum cv testo">
+    <div class="tool-top"><div><h3 class="tool-title">12. Titolo Professionale CV</h3><p class="tool-desc">Crea un titolo professionale per curriculum o LinkedIn.</p></div><span class="tag">Testo</span></div>
+    <label class="small">Competenze principali</label>
+    <input id="jobSkills" type="text" placeholder="es. produzione, qualità, logistica" />
+    <div class="tool-actions"><button onclick="generateJobTitle()">Genera</button><button class="secondary" onclick="copyOutput('jobOutput')">Copia</button></div>
+    <div id="jobOutput" class="output"></div>
+  </article>
+
+  <!-- 13 Email Subject -->
+  <article class="tool-card" data-category="text" data-name="oggetto email testo lavoro business">
+    <div class="tool-top"><div><h3 class="tool-title">13. Oggetto Email</h3><p class="tool-desc">Genera oggetti email più chiari e professionali.</p></div><span class="tag">Testo</span></div>
+    <label class="small">Tema email</label>
+    <input id="emailTopic" type="text" placeholder="es. richiesta info, preventivo, collaborazione" />
+    <div class="tool-actions"><button onclick="generateEmailSubject()">Genera</button><button class="secondary" onclick="copyOutput('emailOutput')">Copia</button></div>
+    <div id="emailOutput" class="output"></div>
+  </article>
+
+  <!-- 14 Rewrite -->
+  <article class="tool-card" data-category="text" data-name="riscrivi testo migliorare">
+    <div class="tool-top"><div><h3 class="tool-title">14. Migliora Testo</h3><p class="tool-desc">Rende più chiara una frase breve inserita dall'utente.</p></div><span class="tag">Testo</span></div>
+    <label class="small">Frase da migliorare</label>
+    <textarea id="rewriteInput" placeholder="Scrivi qui una frase breve..."></textarea>
+    <div class="tool-actions"><button onclick="rewriteText()">Migliora</button><button class="secondary" onclick="copyOutput('rewriteOutput')">Copia</button></div>
+    <div id="rewriteOutput" class="output"></div>
+  </article>
+
+  <!-- 15 Summary -->
+  <article class="tool-card" data-category="text" data-name="riassunto testo short summary">
+    <div class="tool-top"><div><h3 class="tool-title">15. Mini Riassunto</h3><p class="tool-desc">Riduce un testo in una versione breve e leggibile.</p></div><span class="tag">Testo</span></div>
+    <label class="small">Testo da riassumere</label>
+    <textarea id="summaryInput" placeholder="Incolla qui il testo..."></textarea>
+    <div class="tool-actions"><button onclick="summarizeText()">Riassumi</button><button class="secondary" onclick="copyOutput('summaryOutput')">Copia</button></div>
+    <div id="summaryOutput" class="output"></div>
+  </article>
+
+  <!-- 16 Word Counter -->
+  <article class="tool-card" data-category="utility" data-name="contatore parole caratteri utility">
+    <div class="tool-top"><div><h3 class="tool-title">16. Conta Parole</h3><p class="tool-desc">Conta parole, caratteri e frasi in un testo.</p></div><span class="tag">Utility</span></div>
+    <label class="small">Testo</label>
+    <textarea id="countInput" placeholder="Scrivi o incolla il testo..."></textarea>
+    <div class="tool-actions"><button onclick="countWords()">Calcola</button></div>
+    <div id="countOutput" class="output"></div>
+  </article>
+
+  <!-- 17 Case Converter -->
+  <article class="tool-card" data-category="utility" data-name="maiuscolo minuscolo case converter">
+    <div class="tool-top"><div><h3 class="tool-title">17. Convertitore Maiuscole</h3><p class="tool-desc">Converte un testo in maiuscolo, minuscolo o formato titolo.</p></div><span class="tag">Utility</span></div>
+    <label class="small">Testo</label>
+    <textarea id="caseInput" placeholder="Scrivi il testo..."></textarea>
+    <div class="tool-actions"><button onclick="convertCase('upper')">MAIUSCOLO</button><button onclick="convertCase('lower')">minuscolo</button><button onclick="convertCase('title')">Titolo</button></div>
+    <div id="caseOutput" class="output"></div>
+  </article>
+
+  <!-- 18 Slug -->
+  <article class="tool-card" data-category="utility" data-name="slug url utility seo">
+    <div class="tool-top"><div><h3 class="tool-title">18. Generatore Slug URL</h3><p class="tool-desc">Trasforma un titolo in un URL pulito.</p></div><span class="tag">Utility</span></div>
+    <label class="small">Titolo</label>
+    <input id="slugInput" type="text" placeholder="es. Il mio nuovo articolo top" />
+    <div class="tool-actions"><button onclick="generateSlug()">Genera</button><button class="secondary" onclick="copyOutput('slugOutput')">Copia</button></div>
+    <div id="slugOutput" class="output"></div>
+  </article>
+
+  <!-- 19 Random Picker -->
+  <article class="tool-card" data-category="utility" data-name="estrazione casuale random picker utility">
+    <div class="tool-top"><div><h3 class="tool-title">19. Estrazione Casuale</h3><p class="tool-desc">Sceglie un elemento casuale da una lista.</p></div><span class="tag">Utility</span></div>
+    <label class="small">Valori separati da virgola</label>
+    <textarea id="pickerInput" placeholder="es. pizza, sushi, panino"></textarea>
+    <div class="tool-actions"><button onclick="pickRandom()">Estrai</button></div>
+    <div id="pickerOutput" class="output"></div>
+  </article>
+
+  <!-- 20 Link in Bio -->
+  <article class="tool-card" data-category="business" data-name="pagina link bio business creator">
+    <div class="tool-top"><div><h3 class="tool-title">20. Generatore Link in Bio</h3><p class="tool-desc">Crea testo base per una piccola pagina link in bio.</p></div><span class="tag">Business</span></div>
+    <label class="small">Nome progetto o pagina</label>
+    <input id="bioPageName" type="text" placeholder="es. Voci di Cassino" />
+    <div class="tool-actions"><button onclick="generateLinkBio()">Genera</button><button class="secondary" onclick="copyOutput('linkBioOutput')">Copia</button></div>
+    <div id="linkBioOutput" class="output"></div>
+  </article>
+</section>
+
+<p class="footer">Base iniziale pronta da espandere. In una fase successiva puoi aggiungere SEO, analytics, AdSense, form contatti e versione premium.</p>
+
+  </div>  <script>
+    const searchInput = document.getElementById('searchInput');
+    const categoryFilter = document.getElementById('categoryFilter');
+    const cards = [...document.querySelectorAll('.tool-card')];
+
+    function filterTools() {
+      const search = searchInput.value.toLowerCase().trim();
+      const category = categoryFilter.value;
+      cards.forEach(card => {
+        const name = card.dataset.name;
+        const cat = card.dataset.category;
+        const show = (category === 'all' || category === cat) && name.includes(search);
+        card.classList.toggle('hidden', !show);
+      });
+    }
+
+    searchInput.addEventListener('input', filterTools);
+    categoryFilter.addEventListener('change', filterTools);
+
+    function setOutput(id, text) {
+      document.getElementById(id).textContent = text;
+    }
+
+    function copyOutput(id) {
+      const text = document.getElementById(id).textContent.trim();
+      if (!text) return alert('Niente da copiare.');
+      navigator.clipboard.writeText(text)
+        .then(() => alert('Copiato negli appunti.'))
+        .catch(() => alert('Copia non riuscita.'));
+    }
+
+    function randomItem(arr) {
+      return arr[Math.floor(Math.random() * arr.length)];
+    }
+
+    function capitalize(text) {
+      return text.charAt(0).toUpperCase() + text.slice(1);
+    }
+
+    function titleCase(str) {
+      return str.toLowerCase().split(' ').filter(Boolean).map(w => capitalize(w)).join(' ');
+    }
+
+    function generatePassword() {
+      const length = Math.min(64, Math.max(6, Number(document.getElementById('pwdLength').value || 14)));
+      const chars = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()_+[]{}';
+      let result = '';
+      for (let i = 0; i < length; i++) result += chars.charAt(Math.floor(Math.random() * chars.length));
+      setOutput('pwdOutput', result);
+    }
+
+    function generateUsername() {
+      const base = (document.getElementById('userBase').value || 'utente').trim().replace(/\s+/g, '').toLowerCase();
+      const parts = ['official', 'real', 'hub', 'pro', 'zone', 'plus', 'daily', 'live'];
+      const n = Math.floor(Math.random() * 900 + 100);
+      const result = [
+        `${base}_${randomItem(parts)}`,
+        `${randomItem(parts)}_${base}`,
+        `${base}${n}`,
+        `${base}.${randomItem(parts)}`,
+        `${capitalize(base)}${randomItem(['X','Lab','Media','Point'])}`
+      ].join('\n');
+      setOutput('userOutput', result);
+    }
+
+    function generateHashtags() {
+      const topic = (document.getElementById('hashtagTopic').value || 'contenuti').trim().toLowerCase();
+      const clean = topic.replace(/\s+/g, '');
+      const tags = [
+        `#${clean}`,
+        `#${clean}italia`,
+        `#${clean}lover`,
+        `#${clean}time`,
+        '#viral', '#trending', '#italia', '#socialmedia', '#instagood', '#marketing'
+      ];
+      setOutput('hashtagOutput', [...new Set(tags)].join(' '));
+    }
+
+    function generateBio() {
+      const role = (document.getElementById('bioRole').value || 'creator').trim();
+      const bios = [
+        `${capitalize(role)} • Idee, progetti e contenuti ogni settimana.`,
+        `${capitalize(role)} con passione per risultati concreti.`,
+        `${capitalize(role)} | Creatività, costanza e visione.`,
+        `${capitalize(role)} • Qui trasformo idee in contenuti utili.`
+      ];
+      setOutput('bioOutput', randomItem(bios));
+    }
+
+    function generateCaption() {
+      const topic = (document.getElementById('captionTopic').value || 'novità').trim();
+      const caps = [
+        `Nuove energie, nuove idee e un solo obiettivo: fare meglio. Oggi parliamo di ${topic}.`,
+        `Piccoli dettagli, grandi risultati. Ecco perché ${topic} merita attenzione.`,
+        `Quando si parla di ${topic}, la differenza la fanno qualità, costanza e visione.`,
+        `Un passo alla volta, ma nella direzione giusta. Oggi focus su ${topic}.`
+      ];
+      setOutput('captionOutput', randomItem(caps));
+    }
+
+    function generateCTA() {
+      const goal = (document.getElementById('ctaGoal').value || 'scopri di più').trim();
+      const items = [
+        `Non aspettare: ${goal} oggi stesso.`,
+        `Fai il primo passo: ${goal}.`,
+        `Vuoi risultati concreti? ${goal}.`,
+        `Entra subito in azione: ${goal}.`
+      ];
+      setOutput('ctaOutput', items.join('\n'));
+    }
+
+    function generateBrandNames() {
+      const sector = (document.getElementById('brandSector').value || 'business').trim();
+      const roots = ['Nova', 'Prime', 'Urban', 'Smart', 'Blue', 'Vision', 'Next', 'Pulse'];
+      const suffix = ['Lab', 'Point', 'Hub', 'Works', 'Studio', 'Factory', 'Media', 'Flow'];
+      const items = [
+        `${randomItem(roots)} ${capitalize(sector)}`,
+        `${capitalize(sector)} ${randomItem(suffix)}`,
+        `${randomItem(roots)}${randomItem(suffix)}`,
+        `${capitalize(sector)} Next`,
+        `${randomItem(roots)} ${randomItem(suffix)}`
+      ];
+      setOutput('brandOutput', [...new Set(items)].join('\n'));
+    }
+
+    function generateSlogan() {
+      const name = (document.getElementById('sloganName').value || 'La tua attività').trim();
+      const lines = [
+        `${name}: qualità che si nota.`,
+        `${name}: ogni giorno, un motivo in più per scegliere bene.`,
+        `${name}: semplice, utile, vicino alle persone.`,
+        `${name}: la scelta giusta, nel momento giusto.`
+      ];
+      setOutput('sloganOutput', lines.join('\n'));
+    }
+
+    function generateBusinessDescription() {
+      const type = (document.getElementById('bizType').value || 'attività').trim();
+      const text = `Siamo una ${type} orientata a risultati concreti, attenzione al cliente e crescita continua. Il nostro obiettivo è offrire un servizio chiaro, affidabile e capace di creare valore reale.`;
+      setOutput('bizOutput', text);
+    }
+
+    function generateProductDescription() {
+      const name = (document.getElementById('productName').value || 'prodotto').trim();
+      const text = `${capitalize(name)} è pensato per chi cerca praticità, qualità e un utilizzo immediato. Una soluzione semplice ma efficace, ideale per migliorare l'esperienza quotidiana con stile e funzionalità.`;
+      setOutput('productOutput', text);
+    }
+
+    function generateReview() {
+      const name = (document.getElementById('reviewName').value || 'questa attività').trim();
+      const text = `Ottima esperienza da ${name}. Ambiente curato, servizio disponibile e attenzione ai dettagli. Una realtà che trasmette professionalità e lascia una sensazione positiva già dal primo contatto.`;
+      setOutput('reviewOutput', text);
+    }
+
+    function generateJobTitle() {
+      const skills = (document.getElementById('jobSkills').value || 'organizzazione e precisione').trim();
+      const titles = [
+        `Professionista orientato a ${skills}`,
+        `Operatore con esperienza in ${skills}`,
+        `Profilo dinamico specializzato in ${skills}`,
+        `Collaboratore affidabile con focus su ${skills}`
+      ];
+      setOutput('jobOutput', titles.join('\n'));
+    }
+
+    function generateEmailSubject() {
+      const topic = (document.getElementById('emailTopic').value || 'informazioni').trim();
+      const items = [
+        `Richiesta informazioni su ${topic}`,
+        `Aggiornamento relativo a ${topic}`,
+        `Proposta rapida: ${topic}`,
+        `Contatto per ${topic}`
+      ];
+      setOutput('emailOutput', items.join('\n'));
+    }
+
+    function rewriteText() {
+      const input = document.getElementById('rewriteInput').value.trim();
+      if (!input) return setOutput('rewriteOutput', 'Inserisci una frase da migliorare.');
+      let result = input.replace(/\s+/g, ' ').trim();
+      result = capitalize(result);
+      if (!/[.!?]$/.test(result)) result += '.';
+      result = result.replace(/molto molto/gi, 'molto');
+      setOutput('rewriteOutput', `Versione migliorata: ${result}`);
+    }
+
+    function summarizeText() {
+      const input = document.getElementById('summaryInput').value.trim();
+      if (!input) return setOutput('summaryOutput', 'Inserisci un testo da riassumere.');
+      const sentences = input.split(/(?<=[.!?])\s+/).filter(Boolean);
+      const result = sentences.slice(0, 2).join(' ');
+      setOutput('summaryOutput', result || input.slice(0, 180));
+    }
+
+    function countWords() {
+      const text = document.getElementById('countInput').value.trim();
+      const words = text ? text.split(/\s+/).filter(Boolean).length : 0;
+      const chars = text.length;
+      const sentences = text ? text.split(/[.!?]+/).filter(t => t.trim()).length : 0;
+      setOutput('countOutput', `Parole: ${words}\nCaratteri: ${chars}\nFrasi: ${sentences}`);
+    }
+
+    function convertCase(type) {
+      const text = document.getElementById('caseInput').value;
+      if (!text.trim()) return setOutput('caseOutput', 'Inserisci un testo.');
+      let result = text;
+      if (type === 'upper') result = text.toUpperCase();
+      if (type === 'lower') result = text.toLowerCase();
+      if (type === 'title') result = titleCase(text);
+      setOutput('caseOutput', result);
+    }
+
+    function generateSlug() {
+      const text = document.getElementById('slugInput').value.trim();
+      if (!text) return setOutput('slugOutput', 'Inserisci un titolo.');
+      const slug = text
+        .toLowerCase()
+        .normalize('NFD').replace(/[\u0300-\u036f]/g, '')
+        .replace(/[^a-z0-9\s-]/g, '')
+        .trim()
+        .replace(/\s+/g, '-')
+        .replace(/-+/g, '-');
+      setOutput('slugOutput', slug);
+    }
+
+    function pickRandom() {
+      const items = document.getElementById('pickerInput').value.split(',').map(x => x.trim()).filter(Boolean);
+      if (!items.length) return setOutput('pickerOutput', 'Inserisci almeno due elementi separati da virgola.');
+      setOutput('pickerOutput', `Estratto: ${randomItem(items)}`);
+    }
+
+    function generateLinkBio() {
+      const name = (document.getElementById('bioPageName').value || 'Il mio progetto').trim();
+      const text = `${name}\n\nUn punto unico dove trovare link, contenuti, contatti e aggiornamenti principali.\n\n• Sito ufficiale\n• Social principali\n• Contatti rapidi\n• Offerte o novità`;
+      setOutput('linkBioOutput', text);
+    }
+  </script></body>
+</html>
