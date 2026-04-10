@@ -3,32 +3,24 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>AI Tools Hub Italia | 20 strumenti online utili gratis</title>
-  <meta name="description" content="Suite professionale di strumenti online gratis: password, hashtag, bio social, slogan, descrizioni prodotto, recensioni, riassunti, slug URL e molto altro." />
-  <meta name="keywords" content="strumenti online, ai tools, generatori gratis, hashtag generator, password generator, bio instagram, slogan generator" />
+  <title>ToolNova Italia | Strumenti online gratis per social, business e produttività</title>
+  <meta name="description" content="ToolNova Italia raccoglie strumenti online gratis per social, business e produttività. Scopri generatori di hashtag, bio social, slogan, descrizioni prodotto e altri tool utili." />
   <style>
     :root {
       --bg: #07111f;
       --panel: rgba(15, 24, 41, 0.82);
-      --panel-solid: #0f1829;
-      --panel-soft: #15233d;
-      --line: rgba(255, 255, 255, 0.09);
+      --line: rgba(255,255,255,0.09);
       --text: #eef4ff;
       --muted: #9fb0d2;
       --accent: #4da3ff;
       --accent2: #7c5cff;
-      --accent3: #22d3ee;
-      --success: #34d399;
-      --warning: #f59e0b;
       --radius-xl: 28px;
       --radius-lg: 20px;
       --radius-md: 14px;
-      --shadow: 0 22px 50px rgba(0, 0, 0, 0.36);
-      --maxw: 1440px;
+      --shadow: 0 22px 50px rgba(0,0,0,0.36);
+      --maxw: 1200px;
     }
-
     * { box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
     body {
       margin: 0;
       font-family: Arial, Helvetica, sans-serif;
@@ -38,398 +30,83 @@
         radial-gradient(circle at top right, rgba(124,92,255,0.18), transparent 26%),
         linear-gradient(180deg, #06101c 0%, #091425 44%, #08111e 100%);
     }
-
     a { color: inherit; text-decoration: none; }
-    .container { max-width: var(--maxw); margin: 0 auto; padding: 0 24px; }
-
+    .container { max-width: var(--maxw); margin: 0 auto; padding: 0 20px; }
     .topbar {
-      position: sticky;
-      top: 0;
-      z-index: 30;
+      position: sticky; top: 0; z-index: 30;
       backdrop-filter: blur(14px);
-      background: rgba(6, 12, 24, 0.72);
+      background: rgba(6,12,24,0.72);
       border-bottom: 1px solid rgba(255,255,255,0.06);
     }
-
     .topbar-inner {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 18px;
-      min-height: 76px;
+      min-height: 74px; display: flex; align-items: center; justify-content: space-between; gap: 16px;
     }
-
-    .brand {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      font-weight: 800;
-      letter-spacing: 0.3px;
-    }
-
+    .brand { display: flex; align-items: center; gap: 12px; font-weight: 800; }
     .logo {
-      width: 42px;
-      height: 42px;
-      border-radius: 14px;
+      width: 42px; height: 42px; border-radius: 14px;
+      display: grid; place-items: center;
       background: linear-gradient(135deg, var(--accent), var(--accent2));
-      box-shadow: 0 12px 22px rgba(77, 163, 255, 0.28);
-      display: grid;
-      place-items: center;
-      font-size: 20px;
+      box-shadow: 0 12px 22px rgba(77,163,255,0.28);
     }
-
-    .nav {
-      display: flex;
-      gap: 16px;
-      flex-wrap: wrap;
-    }
-
-    .nav a {
-      color: var(--muted);
-      font-size: 14px;
-      font-weight: 700;
-    }
-
+    .nav { display: flex; gap: 16px; flex-wrap: wrap; }
+    .nav a { color: var(--muted); font-size: 14px; font-weight: 700; }
     .nav a:hover { color: var(--text); }
-
-    .hero {
-      padding: 42px 0 26px;
-    }
-
-    .hero-grid {
-      display: grid;
-      grid-template-columns: 1.2fr 0.8fr;
-      gap: 22px;
-      align-items: stretch;
-    }
-
-    .card {
+    .hero { padding: 42px 0 24px; }
+    .hero-card, .card {
       background: var(--panel);
       border: 1px solid var(--line);
       border-radius: var(--radius-xl);
       box-shadow: var(--shadow);
       backdrop-filter: blur(12px);
     }
-
-    .hero-main {
-      padding: 34px;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .hero-main::before {
-      content: "";
-      position: absolute;
-      width: 280px;
-      height: 280px;
-      right: -70px;
-      top: -60px;
-      background: radial-gradient(circle, rgba(77,163,255,0.24), transparent 60%);
-      pointer-events: none;
-    }
-
+    .hero-card { padding: 34px; }
     .pill {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 9px 13px;
-      border-radius: 999px;
-      background: rgba(77, 163, 255, 0.12);
-      border: 1px solid rgba(77, 163, 255, 0.28);
-      color: #d7e8ff;
-      font-size: 12px;
-      font-weight: 700;
-      margin-bottom: 16px;
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 9px 13px; border-radius: 999px;
+      background: rgba(77,163,255,0.12); border: 1px solid rgba(77,163,255,0.28);
+      color: #d7e8ff; font-size: 12px; font-weight: 700; margin-bottom: 16px;
     }
-
-    h1 {
-      margin: 0;
-      font-size: 52px;
-      line-height: 1.02;
-      max-width: 760px;
-    }
-
-    .hero-copy {
-      margin: 18px 0 0;
-      max-width: 760px;
-      color: var(--muted);
-      font-size: 17px;
-      line-height: 1.7;
-    }
-
-    .hero-actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-      margin-top: 24px;
-    }
-
+    h1 { margin: 0; font-size: 48px; line-height: 1.02; }
+    .hero-copy { margin: 18px 0 0; max-width: 760px; color: var(--muted); font-size: 17px; line-height: 1.7; }
+    .hero-actions { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 24px; }
     .btn {
-      border: 0;
-      border-radius: 14px;
-      padding: 13px 18px;
-      cursor: pointer;
-      font-weight: 800;
-      font-size: 14px;
-      color: white;
+      display: inline-block; border: 0; border-radius: 14px; padding: 13px 18px; cursor: pointer;
+      font-weight: 800; font-size: 14px; color: white;
       background: linear-gradient(135deg, var(--accent), var(--accent2));
-      box-shadow: 0 14px 28px rgba(77, 163, 255, 0.22);
+      box-shadow: 0 14px 28px rgba(77,163,255,0.22);
     }
-
-    .btn.secondary {
-      background: rgba(255,255,255,0.06);
-      border: 1px solid var(--line);
-      color: var(--text);
-      box-shadow: none;
+    .btn.secondary { background: rgba(255,255,255,0.06); border: 1px solid var(--line); color: var(--text); box-shadow: none; }
+    .section { padding: 10px 0 24px; }
+    .section-title h2 { margin: 0 0 8px; font-size: 30px; }
+    .section-title p { margin: 0 0 18px; color: var(--muted); line-height: 1.6; }
+    .cards {
+      display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px;
     }
-
-    .hero-side {
-      padding: 24px;
-      display: grid;
-      gap: 14px;
-      align-content: center;
-    }
-
-    .stat-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 12px;
-    }
-
-    .stat {
-      background: rgba(255,255,255,0.05);
-      border: 1px solid var(--line);
-      border-radius: 18px;
-      padding: 16px;
-    }
-
-    .stat strong {
-      display: block;
-      font-size: 28px;
-      margin-bottom: 5px;
-    }
-
-    .stat span { color: var(--muted); font-size: 13px; line-height: 1.4; }
-
-    .mini-note {
-      color: var(--muted);
-      font-size: 14px;
-      line-height: 1.6;
-      margin: 0;
-    }
-
-    .section {
-      padding: 14px 0 24px;
-    }
-
-    .section-title {
-      display: flex;
-      align-items: end;
-      justify-content: space-between;
-      gap: 18px;
-      margin-bottom: 18px;
-    }
-
-    .section-title h2 {
-      margin: 0;
-      font-size: 30px;
-    }
-
-    .section-title p {
-      margin: 0;
-      color: var(--muted);
-      max-width: 700px;
-      line-height: 1.6;
-      font-size: 15px;
-    }
-
-    .feature-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 16px;
-    }
-
-    .feature {
-      padding: 18px;
-      background: rgba(255,255,255,0.04);
-      border: 1px solid var(--line);
-      border-radius: 20px;
-    }
-
-    .feature strong {
-      display: block;
-      margin-bottom: 8px;
-      font-size: 16px;
-    }
-
-    .feature p {
-      margin: 0;
-      color: var(--muted);
-      line-height: 1.6;
-      font-size: 14px;
-    }
-
-    .controls {
-      display: grid;
-      grid-template-columns: 1fr 220px;
-      gap: 16px;
-      margin-bottom: 20px;
-    }
-
-    input, textarea, select {
-      width: 100%;
-      background: rgba(255,255,255,0.05);
-      border: 1px solid var(--line);
-      color: var(--text);
-      padding: 13px 14px;
-      border-radius: 14px;
-      font-size: 14px;
-      outline: none;
-    }
-
-    textarea {
-      min-height: 98px;
-      resize: vertical;
-      font-family: inherit;
-    }
-
-    input:focus, textarea:focus, select:focus {
-      border-color: rgba(77,163,255,0.65);
-      box-shadow: 0 0 0 3px rgba(77,163,255,0.12);
-    }
-
-    .tools-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 18px;
-    }
-
-    .tool-card {
+    .tool-link-card {
       background: var(--panel);
       border: 1px solid var(--line);
       border-radius: 24px;
-      padding: 18px;
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
+      padding: 22px;
       box-shadow: var(--shadow);
+      transition: transform .2s ease, border-color .2s ease;
     }
-
-    .tool-head {
-      display: flex;
-      align-items: flex-start;
-      justify-content: space-between;
-      gap: 12px;
-    }
-
-    .tool-title {
-      margin: 0;
-      font-size: 20px;
-      line-height: 1.15;
-    }
-
-    .tool-desc {
-      margin: 6px 0 0;
-      color: var(--muted);
-      font-size: 14px;
-      line-height: 1.55;
-    }
-
+    .tool-link-card:hover { transform: translateY(-4px); border-color: rgba(77,163,255,0.45); }
+    .tool-link-card h3 { margin: 0 0 8px; font-size: 22px; }
+    .tool-link-card p { margin: 0 0 14px; color: var(--muted); line-height: 1.6; }
     .tag {
-      white-space: nowrap;
-      font-size: 12px;
-      font-weight: 700;
-      padding: 7px 10px;
-      border-radius: 999px;
-      border: 1px solid rgba(124,92,255,0.28);
-      color: #ddd7ff;
-      background: rgba(124,92,255,0.12);
+      display: inline-block; font-size: 12px; font-weight: 700; padding: 7px 10px;
+      border-radius: 999px; border: 1px solid rgba(124,92,255,0.28);
+      color: #ddd7ff; background: rgba(124,92,255,0.12); margin-bottom: 14px;
     }
-
-    .label {
-      color: var(--muted);
-      font-size: 12px;
-      font-weight: 700;
-      letter-spacing: 0.3px;
-    }
-
-    .tool-actions {
-      display: flex;
-      gap: 10px;
-      flex-wrap: wrap;
-      margin-top: auto;
-    }
-
-    .tool-actions button {
-      flex: 0 0 auto;
-    }
-
-    .output {
-      min-height: 64px;
-      background: rgba(255,255,255,0.04);
-      border: 1px solid var(--line);
-      border-radius: 15px;
-      padding: 12px;
-      white-space: pre-wrap;
-      word-break: break-word;
-      line-height: 1.55;
-      color: #eff5ff;
-    }
-
-    .faq-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 16px;
-    }
-
-    .faq {
-      padding: 20px;
-      background: rgba(255,255,255,0.04);
-      border: 1px solid var(--line);
-      border-radius: 20px;
-    }
-
-    .faq strong {
-      display: block;
-      margin-bottom: 8px;
-      font-size: 16px;
-    }
-
-    .faq p {
-      margin: 0;
-      color: var(--muted);
-      font-size: 14px;
-      line-height: 1.6;
-    }
-
-    .footer {
-      padding: 24px 0 46px;
-      color: var(--muted);
-      text-align: center;
-      font-size: 13px;
-    }
-
-    .hidden { display: none !important; }
-
-    @media (max-width: 1200px) {
-      .tools-grid { grid-template-columns: repeat(2, 1fr); }
-      .feature-grid { grid-template-columns: repeat(2, 1fr); }
-      .faq-grid { grid-template-columns: repeat(2, 1fr); }
-      .hero-grid { grid-template-columns: 1fr; }
-    }
-
-    @media (max-width: 760px) {
-      .container { padding: 0 16px; }
+    .faq-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 16px; }
+    .faq { padding: 20px; background: rgba(255,255,255,0.04); border: 1px solid var(--line); border-radius: 20px; }
+    .faq strong { display: block; margin-bottom: 8px; font-size: 16px; }
+    .faq p { margin: 0; color: var(--muted); font-size: 14px; line-height: 1.6; }
+    .footer { padding: 24px 0 40px; color: var(--muted); text-align: center; font-size: 13px; }
+    @media (max-width: 900px) {
+      .cards, .faq-grid { grid-template-columns: 1fr; }
       h1 { font-size: 34px; }
-      .topbar-inner { min-height: 68px; }
       .nav { display: none; }
-      .tools-grid,
-      .feature-grid,
-      .faq-grid,
-      .controls,
-      .stat-grid { grid-template-columns: 1fr; }
-      .section-title { flex-direction: column; align-items: flex-start; }
-      .hero-main, .hero-side, .tool-card { padding: 18px; }
     }
   </style>
 </head>
@@ -437,13 +114,12 @@
   <header class="topbar">
     <div class="container topbar-inner">
       <div class="brand">
-        <div class="logo">⚡</div>
-        <div>AI Tools Hub Italia</div>
+        <div class="logo">TN</div>
+        <div>ToolNova Italia</div>
       </div>
       <nav class="nav">
         <a href="#home">Home</a>
-        <a href="#vantaggi">Vantaggi</a>
-        <a href="#strumenti">Strumenti</a>
+        <a href="#tools">Tool</a>
         <a href="#faq">FAQ</a>
       </nav>
     </div>
@@ -451,225 +127,50 @@
 
   <main>
     <section id="home" class="hero">
-      <div class="container hero-grid">
-        <div class="card hero-main">
-          <div class="pill">Pubblicabile subito su GitHub Pages</div>
-          <h1>Il tuo sito definitivo di strumenti online utili, pronto da pubblicare.</h1>
-          <p class="hero-copy">Questa versione è già pensata per essere presentata bene, attirare visite, offrire valore reale e diventare la base di un progetto più grande. Include 20 strumenti funzionanti, ricerca interna, filtri per categoria, struttura chiara e una grafica moderna adatta a desktop e smartphone.</p>
+      <div class="container">
+        <div class="hero-card">
+          <div class="pill">Piattaforma pronta da far crescere</div>
+          <h1>ToolNova Italia: strumenti online utili, veloci e pronti a portare traffico.</h1>
+          <p class="hero-copy">Questa home diventa la vetrina del progetto. Ogni strumento importante avrà una sua pagina dedicata, più chiara per gli utenti e più forte per Google. È la base giusta per crescere con SEO, pubblicità e affiliazioni.</p>
           <div class="hero-actions">
-            <a class="btn" href="#strumenti">Apri gli strumenti</a>
-            <a class="btn secondary" href="#faq">Come pubblicarlo</a>
+            <a class="btn" href="#tools">Scopri i tool</a>
+            <a class="btn secondary" href="#faq">Come monetizzare</a>
           </div>
-        </div>
-        <div class="card hero-side">
-          <div class="stat-grid">
-            <div class="stat"><strong>20</strong><span>strumenti inclusi e già funzionanti direttamente nel browser</span></div>
-            <div class="stat"><strong>1 file</strong><span>gestione semplice, perfetta per iniziare e modificare tutto rapidamente</span></div>
-            <div class="stat"><strong>SEO ready</strong><span>titolo e meta description già presenti per una base più professionale</span></div>
-            <div class="stat"><strong>Mobile</strong><span>layout responsive per telefoni, tablet e computer</span></div>
-          </div>
-          <p class="mini-note">Puoi usare questo sito così com’è oppure trasformarlo in un progetto più grande con pubblicità, affiliate, form contatti, analytics e pagine dedicate per ogni tool.</p>
         </div>
       </div>
     </section>
 
-    <section id="vantaggi" class="section">
+    <section id="tools" class="section">
       <div class="container">
         <div class="section-title">
-          <div>
-            <h2>Perché questa base è forte</h2>
-          </div>
-          <p>Non è solo una raccolta casuale di generatori. È una struttura pensata per fare bella figura subito, essere facile da pubblicare e potersi evolvere in un sito più grande.</p>
+          <h2>Pagine dedicate ai tool principali</h2>
+          <p>Queste sono le prime 4 pagine separate consigliate perché hanno più possibilità di essere cercate, condivise e monetizzate.</p>
         </div>
-        <div class="feature-grid">
-          <div class="feature"><strong>Impatto visivo</strong><p>Home chiara, hero forte, sezioni ordinate e design moderno con aspetto professionale.</p></div>
-          <div class="feature"><strong>Esperienza semplice</strong><p>Ricerca interna e filtri per categoria aiutano l’utente a trovare subito lo strumento giusto.</p></div>
-          <div class="feature"><strong>Zero server</strong><p>Tutto gira lato browser. Quindi puoi pubblicarlo gratis su GitHub Pages senza configurazioni complesse.</p></div>
-          <div class="feature"><strong>Pronto da espandere</strong><p>Puoi aggiungere facilmente nuovi strumenti, pagine SEO, banner, affiliazioni e versioni premium.</p></div>
-        </div>
-      </div>
-    </section>
-
-    <section id="strumenti" class="section">
-      <div class="container">
-        <div class="section-title">
-          <div>
-            <h2>Strumenti online</h2>
-          </div>
-          <p>Usa la barra di ricerca oppure seleziona una categoria. Tutti gli strumenti funzionano in tempo reale e possono essere copiati con un clic.</p>
-        </div>
-
-        <div class="controls">
-          <input id="searchInput" type="text" placeholder="Cerca uno strumento... es. password, slogan, bio, recensione" />
-          <select id="categoryFilter">
-            <option value="all">Tutte le categorie</option>
-            <option value="social">Social</option>
-            <option value="business">Business</option>
-            <option value="text">Testo</option>
-            <option value="utility">Utilità</option>
-          </select>
-        </div>
-
-        <div id="toolsGrid" class="tools-grid">
-          <article class="tool-card" data-category="utility" data-name="generatore password password security utility sicurezza">
-            <div class="tool-head"><div><h3 class="tool-title">1. Generatore Password</h3><p class="tool-desc">Crea password casuali con lettere, numeri e simboli.</p></div><span class="tag">Utility</span></div>
-            <label class="label">Lunghezza password</label>
-            <input id="pwdLength" type="number" min="6" max="64" value="14" />
-            <div class="tool-actions"><button class="btn" onclick="generatePassword()">Genera</button><button class="btn secondary" onclick="copyOutput('pwdOutput')">Copia</button></div>
-            <div id="pwdOutput" class="output"></div>
-          </article>
-
-          <article class="tool-card" data-category="social" data-name="username nickname instagram tiktok social gamer">
-            <div class="tool-head"><div><h3 class="tool-title">2. Generatore Username</h3><p class="tool-desc">Trova idee rapide per nickname social o gamer.</p></div><span class="tag">Social</span></div>
-            <label class="label">Parola base</label>
-            <input id="userBase" type="text" placeholder="es. marco, creator, calcio" />
-            <div class="tool-actions"><button class="btn" onclick="generateUsername()">Genera</button><button class="btn secondary" onclick="copyOutput('userOutput')">Copia</button></div>
-            <div id="userOutput" class="output"></div>
-          </article>
-
-          <article class="tool-card" data-category="social" data-name="hashtag social instagram facebook tiktok tag">
-            <div class="tool-head"><div><h3 class="tool-title">3. Generatore Hashtag</h3><p class="tool-desc">Genera hashtag a partire da un tema o settore.</p></div><span class="tag">Social</span></div>
-            <label class="label">Argomento</label>
-            <input id="hashtagTopic" type="text" placeholder="es. viaggi, fitness, ristorante" />
-            <div class="tool-actions"><button class="btn" onclick="generateHashtags()">Genera</button><button class="btn secondary" onclick="copyOutput('hashtagOutput')">Copia</button></div>
-            <div id="hashtagOutput" class="output"></div>
-          </article>
-
-          <article class="tool-card" data-category="social" data-name="bio instagram bio social">
-            <div class="tool-head"><div><h3 class="tool-title">4. Generatore Bio Social</h3><p class="tool-desc">Crea una bio breve per Instagram, TikTok o Facebook.</p></div><span class="tag">Social</span></div>
-            <label class="label">Ruolo o professione</label>
-            <input id="bioRole" type="text" placeholder="es. operaio, fotografo, creator" />
-            <div class="tool-actions"><button class="btn" onclick="generateBio()">Genera</button><button class="btn secondary" onclick="copyOutput('bioOutput')">Copia</button></div>
-            <div id="bioOutput" class="output"></div>
-          </article>
-
-          <article class="tool-card" data-category="social" data-name="caption post social facebook instagram">
-            <div class="tool-head"><div><h3 class="tool-title">5. Generatore Caption</h3><p class="tool-desc">Scrive una caption breve e pulita per i tuoi post.</p></div><span class="tag">Social</span></div>
-            <label class="label">Tema del post</label>
-            <input id="captionTopic" type="text" placeholder="es. promo, evento, novità" />
-            <div class="tool-actions"><button class="btn" onclick="generateCaption()">Genera</button><button class="btn secondary" onclick="copyOutput('captionOutput')">Copia</button></div>
-            <div id="captionOutput" class="output"></div>
-          </article>
-
-          <article class="tool-card" data-category="business" data-name="cta call to action business marketing">
-            <div class="tool-head"><div><h3 class="tool-title">6. Generatore CTA</h3><p class="tool-desc">Crea call to action dirette per vendita, contatto o download.</p></div><span class="tag">Business</span></div>
-            <label class="label">Obiettivo</label>
-            <input id="ctaGoal" type="text" placeholder="es. prenota ora, scarica app" />
-            <div class="tool-actions"><button class="btn" onclick="generateCTA()">Genera</button><button class="btn secondary" onclick="copyOutput('ctaOutput')">Copia</button></div>
-            <div id="ctaOutput" class="output"></div>
-          </article>
-
-          <article class="tool-card" data-category="business" data-name="nome brand azienda business shop">
-            <div class="tool-head"><div><h3 class="tool-title">7. Generatore Nome Brand</h3><p class="tool-desc">Genera idee per nomi di attività, pagine o progetti.</p></div><span class="tag">Business</span></div>
-            <label class="label">Settore</label>
-            <input id="brandSector" type="text" placeholder="es. pizzeria, tech, sport" />
-            <div class="tool-actions"><button class="btn" onclick="generateBrandNames()">Genera</button><button class="btn secondary" onclick="copyOutput('brandOutput')">Copia</button></div>
-            <div id="brandOutput" class="output"></div>
-          </article>
-
-          <article class="tool-card" data-category="business" data-name="slogan brand marketing pubblicità business">
-            <div class="tool-head"><div><h3 class="tool-title">8. Generatore Slogan</h3><p class="tool-desc">Crea slogan semplici, rapidi e memorabili.</p></div><span class="tag">Business</span></div>
-            <label class="label">Nome attività</label>
-            <input id="sloganName" type="text" placeholder="es. Segnala Facile" />
-            <div class="tool-actions"><button class="btn" onclick="generateSlogan()">Genera</button><button class="btn secondary" onclick="copyOutput('sloganOutput')">Copia</button></div>
-            <div id="sloganOutput" class="output"></div>
-          </article>
-
-          <article class="tool-card" data-category="business" data-name="descrizione attività azienda business presentazione">
-            <div class="tool-head"><div><h3 class="tool-title">9. Descrizione Attività</h3><p class="tool-desc">Genera una breve presentazione aziendale o di progetto.</p></div><span class="tag">Business</span></div>
-            <label class="label">Tipo attività</label>
-            <input id="bizType" type="text" placeholder="es. ristorante, app civica" />
-            <div class="tool-actions"><button class="btn" onclick="generateBusinessDescription()">Genera</button><button class="btn secondary" onclick="copyOutput('bizOutput')">Copia</button></div>
-            <div id="bizOutput" class="output"></div>
-          </article>
-
-          <article class="tool-card" data-category="business" data-name="descrizione prodotto ecommerce vendita">
-            <div class="tool-head"><div><h3 class="tool-title">10. Descrizione Prodotto</h3><p class="tool-desc">Crea testi brevi per prodotti, annunci o e-commerce.</p></div><span class="tag">Business</span></div>
-            <label class="label">Nome prodotto</label>
-            <input id="productName" type="text" placeholder="es. smartwatch, ebook" />
-            <div class="tool-actions"><button class="btn" onclick="generateProductDescription()">Genera</button><button class="btn secondary" onclick="copyOutput('productOutput')">Copia</button></div>
-            <div id="productOutput" class="output"></div>
-          </article>
-
-          <article class="tool-card" data-category="text" data-name="recensione attività locale testo google maps">
-            <div class="tool-head"><div><h3 class="tool-title">11. Recensione Attività</h3><p class="tool-desc">Genera una recensione positiva ma credibile per un locale.</p></div><span class="tag">Testo</span></div>
-            <label class="label">Nome attività</label>
-            <input id="reviewName" type="text" placeholder="es. Bar Centrale" />
-            <div class="tool-actions"><button class="btn" onclick="generateReview()">Genera</button><button class="btn secondary" onclick="copyOutput('reviewOutput')">Copia</button></div>
-            <div id="reviewOutput" class="output"></div>
-          </article>
-
-          <article class="tool-card" data-category="text" data-name="titolo professionale cv lavoro linkedin testo">
-            <div class="tool-head"><div><h3 class="tool-title">12. Titolo Professionale CV</h3><p class="tool-desc">Crea un titolo rapido per curriculum o profilo professionale.</p></div><span class="tag">Testo</span></div>
-            <label class="label">Competenze principali</label>
-            <input id="jobSkills" type="text" placeholder="es. qualità, logistica, produzione" />
-            <div class="tool-actions"><button class="btn" onclick="generateJobTitle()">Genera</button><button class="btn secondary" onclick="copyOutput('jobOutput')">Copia</button></div>
-            <div id="jobOutput" class="output"></div>
-          </article>
-
-          <article class="tool-card" data-category="text" data-name="oggetto email titolo mail business lavoro">
-            <div class="tool-head"><div><h3 class="tool-title">13. Oggetto Email</h3><p class="tool-desc">Genera oggetti email più chiari e professionali.</p></div><span class="tag">Testo</span></div>
-            <label class="label">Tema email</label>
-            <input id="emailTopic" type="text" placeholder="es. preventivo, collaborazione" />
-            <div class="tool-actions"><button class="btn" onclick="generateEmailSubject()">Genera</button><button class="btn secondary" onclick="copyOutput('emailOutput')">Copia</button></div>
-            <div id="emailOutput" class="output"></div>
-          </article>
-
-          <article class="tool-card" data-category="text" data-name="migliora testo rewrite migliorare frase">
-            <div class="tool-head"><div><h3 class="tool-title">14. Migliora Testo</h3><p class="tool-desc">Rende una frase più pulita, leggibile e presentabile.</p></div><span class="tag">Testo</span></div>
-            <label class="label">Frase da migliorare</label>
-            <textarea id="rewriteInput" placeholder="Scrivi qui una frase breve..."></textarea>
-            <div class="tool-actions"><button class="btn" onclick="rewriteText()">Migliora</button><button class="btn secondary" onclick="copyOutput('rewriteOutput')">Copia</button></div>
-            <div id="rewriteOutput" class="output"></div>
-          </article>
-
-          <article class="tool-card" data-category="text" data-name="riassunto summary testo corto">
-            <div class="tool-head"><div><h3 class="tool-title">15. Mini Riassunto</h3><p class="tool-desc">Riduce un testo lungo in una versione più breve e leggibile.</p></div><span class="tag">Testo</span></div>
-            <label class="label">Testo da riassumere</label>
-            <textarea id="summaryInput" placeholder="Incolla qui il testo..."></textarea>
-            <div class="tool-actions"><button class="btn" onclick="summarizeText()">Riassumi</button><button class="btn secondary" onclick="copyOutput('summaryOutput')">Copia</button></div>
-            <div id="summaryOutput" class="output"></div>
-          </article>
-
-          <article class="tool-card" data-category="utility" data-name="contatore parole caratteri utility text counter">
-            <div class="tool-head"><div><h3 class="tool-title">16. Conta Parole</h3><p class="tool-desc">Conta parole, caratteri e frasi di un testo.</p></div><span class="tag">Utility</span></div>
-            <label class="label">Testo</label>
-            <textarea id="countInput" placeholder="Scrivi o incolla il testo..."></textarea>
-            <div class="tool-actions"><button class="btn" onclick="countWords()">Calcola</button></div>
-            <div id="countOutput" class="output"></div>
-          </article>
-
-          <article class="tool-card" data-category="utility" data-name="convertitore maiuscole minuscole text case utility">
-            <div class="tool-head"><div><h3 class="tool-title">17. Convertitore Maiuscole</h3><p class="tool-desc">Converte testo in maiuscolo, minuscolo o formato titolo.</p></div><span class="tag">Utility</span></div>
-            <label class="label">Testo</label>
-            <textarea id="caseInput" placeholder="Scrivi il testo..."></textarea>
-            <div class="tool-actions"><button class="btn" onclick="convertCase('upper')">MAIUSCOLO</button><button class="btn secondary" onclick="convertCase('lower')">minuscolo</button><button class="btn secondary" onclick="convertCase('title')">Titolo</button></div>
-            <div id="caseOutput" class="output"></div>
-          </article>
-
-          <article class="tool-card" data-category="utility" data-name="slug url seo utility title link">
-            <div class="tool-head"><div><h3 class="tool-title">18. Generatore Slug URL</h3><p class="tool-desc">Trasforma un titolo in un URL pulito e pronto da usare.</p></div><span class="tag">Utility</span></div>
-            <label class="label">Titolo</label>
-            <input id="slugInput" type="text" placeholder="es. Il mio nuovo articolo top" />
-            <div class="tool-actions"><button class="btn" onclick="generateSlug()">Genera</button><button class="btn secondary" onclick="copyOutput('slugOutput')">Copia</button></div>
-            <div id="slugOutput" class="output"></div>
-          </article>
-
-          <article class="tool-card" data-category="utility" data-name="estrazione casuale picker random utility">
-            <div class="tool-head"><div><h3 class="tool-title">19. Estrazione Casuale</h3><p class="tool-desc">Sceglie un elemento casuale da una lista separata da virgole.</p></div><span class="tag">Utility</span></div>
-            <label class="label">Valori</label>
-            <textarea id="pickerInput" placeholder="es. pizza, sushi, panino"></textarea>
-            <div class="tool-actions"><button class="btn" onclick="pickRandom()">Estrai</button></div>
-            <div id="pickerOutput" class="output"></div>
-          </article>
-
-          <article class="tool-card" data-category="business" data-name="link in bio creator business page">
-            <div class="tool-head"><div><h3 class="tool-title">20. Generatore Link in Bio</h3><p class="tool-desc">Crea testo base per una semplice pagina link in bio.</p></div><span class="tag">Business</span></div>
-            <label class="label">Nome progetto</label>
-            <input id="bioPageName" type="text" placeholder="es. Voci di Cassino" />
-            <div class="tool-actions"><button class="btn" onclick="generateLinkBio()">Genera</button><button class="btn secondary" onclick="copyOutput('linkBioOutput')">Copia</button></div>
-            <div id="linkBioOutput" class="output"></div>
-          </article>
+        <div class="cards">
+          <a class="tool-link-card" href="hashtag-generator.html">
+            <div class="tag">Social</div>
+            <h3>Generatore Hashtag</h3>
+            <p>Pagina dedicata per creare hashtag rapidi per Instagram, TikTok, Facebook e contenuti marketing.</p>
+            <span class="btn">Apri la pagina</span>
+          </a>
+          <a class="tool-link-card" href="bio-social-generator.html">
+            <div class="tag">Social</div>
+            <h3>Generatore Bio Social</h3>
+            <p>Uno strumento semplice e diretto per ottenere bio pronte per Instagram, TikTok o Facebook.</p>
+            <span class="btn">Apri la pagina</span>
+          </a>
+          <a class="tool-link-card" href="slogan-generator.html">
+            <div class="tag">Business</div>
+            <h3>Generatore Slogan</h3>
+            <p>Pagina dedicata per slogan pubblicitari facili da usare per aziende, attività locali e progetti.</p>
+            <span class="btn">Apri la pagina</span>
+          </a>
+          <a class="tool-link-card" href="product-description-generator.html">
+            <div class="tag">Business</div>
+            <h3>Descrizione Prodotto</h3>
+            <p>Tool utile per e-commerce, annunci e schede prodotto con testo già pronto da personalizzare.</p>
+            <span class="btn">Apri la pagina</span>
+          </a>
         </div>
       </div>
     </section>
@@ -677,276 +178,20 @@
     <section id="faq" class="section">
       <div class="container">
         <div class="section-title">
-          <div>
-            <h2>Pubblicazione e prossimi passi</h2>
-          </div>
-          <p>Questa pagina è già pronta per essere caricata come <strong>index.html</strong> in una repository GitHub pubblica e pubblicata con GitHub Pages.</p>
+          <h2>Perché fare pagine separate</h2>
+          <p>È il passaggio giusto per dare al sito una struttura più professionale e iniziare a ragionare in ottica traffico e monetizzazione.</p>
         </div>
         <div class="faq-grid">
-          <div class="faq"><strong>Come si pubblica?</strong><p>Crea una repository, carica questo file come index.html e attiva GitHub Pages nelle impostazioni della repository.</p></div>
-          <div class="faq"><strong>Cosa puoi aggiungere dopo?</strong><p>Pagine dedicate per ogni tool, banner pubblicitari, SEO più avanzata, contatti, analytics e nuove categorie.</p></div>
-          <div class="faq"><strong>Come guadagnare?</strong><p>Con traffico organico, advertising, affiliate, sponsorizzazioni o servizi premium collegati ai generatori più richiesti.</p></div>
+          <div class="faq"><strong>Più forza SEO</strong><p>Ogni pagina può avere un titolo, una descrizione e parole chiave più precise rispetto a una home unica.</p></div>
+          <div class="faq"><strong>Più chiarezza</strong><p>L’utente arriva subito sul tool giusto senza dover cercare tra troppi strumenti nella stessa pagina.</p></div>
+          <div class="faq"><strong>Più monetizzazione</strong><p>Ogni pagina può avere banner, affiliate o call to action specifiche in base al tipo di strumento.</p></div>
         </div>
       </div>
     </section>
   </main>
 
   <footer class="footer">
-    <div class="container">AI Tools Hub Italia • Base professionale pronta da pubblicare e ampliare.</div>
+    <div class="container">ToolNova Italia • Home principale con pagine separate per i tool strategici.</div>
   </footer>
-
-  <script>
-    const searchInput = document.getElementById('searchInput');
-    const categoryFilter = document.getElementById('categoryFilter');
-    const cards = [...document.querySelectorAll('.tool-card')];
-
-    function filterTools() {
-      const search = searchInput.value.toLowerCase().trim();
-      const category = categoryFilter.value;
-      cards.forEach(card => {
-        const name = card.dataset.name;
-        const cat = card.dataset.category;
-        const visible = (category === 'all' || category === cat) && name.includes(search);
-        card.classList.toggle('hidden', !visible);
-      });
-    }
-
-    searchInput.addEventListener('input', filterTools);
-    categoryFilter.addEventListener('change', filterTools);
-
-    function setOutput(id, text) {
-      document.getElementById(id).textContent = text;
-    }
-
-    function copyOutput(id) {
-      const text = document.getElementById(id).textContent.trim();
-      if (!text) {
-        alert('Niente da copiare.');
-        return;
-      }
-      navigator.clipboard.writeText(text)
-        .then(() => alert('Copiato negli appunti.'))
-        .catch(() => alert('Copia non riuscita.'));
-    }
-
-    function randomItem(arr) {
-      return arr[Math.floor(Math.random() * arr.length)];
-    }
-
-    function capitalize(text) {
-      return text ? text.charAt(0).toUpperCase() + text.slice(1) : '';
-    }
-
-    function titleCase(str) {
-      return str.toLowerCase().split(' ').filter(Boolean).map(word => capitalize(word)).join(' ');
-    }
-
-    function generatePassword() {
-      const length = Math.min(64, Math.max(6, Number(document.getElementById('pwdLength').value || 14)));
-      const chars = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()_+[]{}';
-      let result = '';
-      for (let i = 0; i < length; i++) {
-        result += chars.charAt(Math.floor(Math.random() * chars.length));
-      }
-      setOutput('pwdOutput', result);
-    }
-
-    function generateUsername() {
-      const base = (document.getElementById('userBase').value || 'utente').trim().replace(/\s+/g, '').toLowerCase();
-      const extra = ['official', 'real', 'hub', 'plus', 'zone', 'live', 'daily', 'lab'];
-      const number = Math.floor(Math.random() * 900 + 100);
-      const results = [
-        `${base}_${randomItem(extra)}`,
-        `${randomItem(extra)}_${base}`,
-        `${base}${number}`,
-        `${base}.${randomItem(extra)}`,
-        `${capitalize(base)}${randomItem(['X', 'Point', 'Media', 'Studio'])}`
-      ];
-      setOutput('userOutput', results.join('\n'));
-    }
-
-    function generateHashtags() {
-      const topic = (document.getElementById('hashtagTopic').value || 'contenuti').trim().toLowerCase();
-      const clean = topic.replace(/\s+/g, '');
-      const tags = [
-        `#${clean}`,
-        `#${clean}italia`,
-        `#${clean}lover`,
-        `#${clean}time`,
-        '#viral', '#trending', '#social', '#marketing', '#italia', '#contentcreator'
-      ];
-      setOutput('hashtagOutput', [...new Set(tags)].join(' '));
-    }
-
-    function generateBio() {
-      const role = (document.getElementById('bioRole').value || 'creator').trim();
-      const results = [
-        `${capitalize(role)} • Idee, contenuti e crescita costante.`,
-        `${capitalize(role)} | Passione, costanza e risultati concreti.`,
-        `${capitalize(role)} • Qui trasformo idee in contenuti utili.`,
-        `${capitalize(role)} con focus su qualità, visione e semplicità.`
-      ];
-      setOutput('bioOutput', randomItem(results));
-    }
-
-    function generateCaption() {
-      const topic = (document.getElementById('captionTopic').value || 'novità').trim();
-      const results = [
-        `Nuove idee, nuove energie e un solo obiettivo: fare meglio. Oggi parliamo di ${topic}.`,
-        `Piccoli dettagli, grandi risultati. Ecco perché ${topic} merita attenzione.`,
-        `Quando si parla di ${topic}, la differenza la fanno costanza, qualità e visione.`,
-        `Un passo alla volta, ma nella direzione giusta. Focus di oggi: ${topic}.`
-      ];
-      setOutput('captionOutput', randomItem(results));
-    }
-
-    function generateCTA() {
-      const goal = (document.getElementById('ctaGoal').value || 'scopri di più').trim();
-      const results = [
-        `Non aspettare: ${goal} oggi stesso.`,
-        `Fai il primo passo: ${goal}.`,
-        `Vuoi risultati concreti? ${goal}.`,
-        `Agisci ora: ${goal}.`
-      ];
-      setOutput('ctaOutput', results.join('\n'));
-    }
-
-    function generateBrandNames() {
-      const sector = (document.getElementById('brandSector').value || 'business').trim();
-      const roots = ['Nova', 'Prime', 'Smart', 'Blue', 'Next', 'Vision', 'Urban', 'Pulse'];
-      const suffix = ['Hub', 'Point', 'Works', 'Studio', 'Flow', 'Lab', 'Factory'];
-      const results = [
-        `${randomItem(roots)} ${capitalize(sector)}`,
-        `${capitalize(sector)} ${randomItem(suffix)}`,
-        `${randomItem(roots)}${randomItem(suffix)}`,
-        `${capitalize(sector)} Next`,
-        `${randomItem(roots)} ${randomItem(suffix)}`
-      ];
-      setOutput('brandOutput', [...new Set(results)].join('\n'));
-    }
-
-    function generateSlogan() {
-      const name = (document.getElementById('sloganName').value || 'La tua attività').trim();
-      const results = [
-        `${name}: qualità che si nota.`,
-        `${name}: la scelta giusta ogni giorno.`,
-        `${name}: semplice, utile, vicino alle persone.`,
-        `${name}: valore reale, senza complicazioni.`
-      ];
-      setOutput('sloganOutput', results.join('\n'));
-    }
-
-    function generateBusinessDescription() {
-      const type = (document.getElementById('bizType').value || 'attività').trim();
-      setOutput('bizOutput', `Siamo una ${type} orientata a risultati concreti, attenzione al cliente e crescita continua. Il nostro obiettivo è offrire un servizio chiaro, affidabile e capace di creare valore reale.`);
-    }
-
-    function generateProductDescription() {
-      const name = (document.getElementById('productName').value || 'prodotto').trim();
-      setOutput('productOutput', `${capitalize(name)} è pensato per chi cerca praticità, qualità e un utilizzo immediato. Una soluzione semplice ma efficace, ideale per migliorare l'esperienza quotidiana con stile e funzionalità.`);
-    }
-
-    function generateReview() {
-      const name = (document.getElementById('reviewName').value || 'questa attività').trim();
-      setOutput('reviewOutput', `Ottima esperienza da ${name}. Ambiente curato, servizio disponibile e attenzione ai dettagli. Una realtà che trasmette professionalità e lascia una sensazione positiva già dal primo contatto.`);
-    }
-
-    function generateJobTitle() {
-      const skills = (document.getElementById('jobSkills').value || 'organizzazione e precisione').trim();
-      const results = [
-        `Professionista orientato a ${skills}`,
-        `Operatore con esperienza in ${skills}`,
-        `Profilo dinamico specializzato in ${skills}`,
-        `Collaboratore affidabile con focus su ${skills}`
-      ];
-      setOutput('jobOutput', results.join('\n'));
-    }
-
-    function generateEmailSubject() {
-      const topic = (document.getElementById('emailTopic').value || 'informazioni').trim();
-      const results = [
-        `Richiesta informazioni su ${topic}`,
-        `Aggiornamento relativo a ${topic}`,
-        `Proposta rapida: ${topic}`,
-        `Contatto per ${topic}`
-      ];
-      setOutput('emailOutput', results.join('\n'));
-    }
-
-    function rewriteText() {
-      const input = document.getElementById('rewriteInput').value.trim();
-      if (!input) {
-        setOutput('rewriteOutput', 'Inserisci una frase da migliorare.');
-        return;
-      }
-      let result = input.replace(/\s+/g, ' ').trim();
-      result = capitalize(result);
-      if (!/[.!?]$/.test(result)) result += '.';
-      result = result.replace(/molto molto/gi, 'molto');
-      setOutput('rewriteOutput', `Versione migliorata: ${result}`);
-    }
-
-    function summarizeText() {
-      const input = document.getElementById('summaryInput').value.trim();
-      if (!input) {
-        setOutput('summaryOutput', 'Inserisci un testo da riassumere.');
-        return;
-      }
-      const sentences = input.split(/(?<=[.!?])\s+/).filter(Boolean);
-      const result = sentences.slice(0, 2).join(' ');
-      setOutput('summaryOutput', result || input.slice(0, 180));
-    }
-
-    function countWords() {
-      const text = document.getElementById('countInput').value.trim();
-      const words = text ? text.split(/\s+/).filter(Boolean).length : 0;
-      const chars = text.length;
-      const sentences = text ? text.split(/[.!?]+/).filter(part => part.trim()).length : 0;
-      setOutput('countOutput', `Parole: ${words}\nCaratteri: ${chars}\nFrasi: ${sentences}`);
-    }
-
-    function convertCase(type) {
-      const text = document.getElementById('caseInput').value;
-      if (!text.trim()) {
-        setOutput('caseOutput', 'Inserisci un testo.');
-        return;
-      }
-      let result = text;
-      if (type === 'upper') result = text.toUpperCase();
-      if (type === 'lower') result = text.toLowerCase();
-      if (type === 'title') result = titleCase(text);
-      setOutput('caseOutput', result);
-    }
-
-    function generateSlug() {
-      const text = document.getElementById('slugInput').value.trim();
-      if (!text) {
-        setOutput('slugOutput', 'Inserisci un titolo.');
-        return;
-      }
-      const slug = text
-        .toLowerCase()
-        .normalize('NFD').replace(/[\u0300-\u036f]/g, '')
-        .replace(/[^a-z0-9\s-]/g, '')
-        .trim()
-        .replace(/\s+/g, '-')
-        .replace(/-+/g, '-');
-      setOutput('slugOutput', slug);
-    }
-
-    function pickRandom() {
-      const items = document.getElementById('pickerInput').value.split(',').map(item => item.trim()).filter(Boolean);
-      if (!items.length) {
-        setOutput('pickerOutput', 'Inserisci almeno due elementi separati da virgola.');
-        return;
-      }
-      setOutput('pickerOutput', `Estratto: ${randomItem(items)}`);
-    }
-
-    function generateLinkBio() {
-      const name = (document.getElementById('bioPageName').value || 'Il mio progetto').trim();
-      setOutput('linkBioOutput', `${name}\n\nUn punto unico dove trovare link, contenuti, contatti e aggiornamenti principali.\n\n• Sito ufficiale\n• Social principali\n• Contatti rapidi\n• Offerte o novità`);
-    }
-  </script>
 </body>
 </html>
